@@ -1,0 +1,392 @@
+/* src/app/reception_style.css */
+
+:root {
+  /* Palette: "Executive Suite" */
+  --mnc-navy: #1a202c;
+  --mnc-charcoal: #2d3748;
+  --mnc-gold: #c5a47e;
+  --mnc-bg: #f4f7f6;
+  --mnc-surface: #ffffff;
+  --mnc-border: #e2e8f0;
+
+  /* Status Colors */
+  --status-red: #c0392b;
+  --status-green: #27ae60;
+  --status-blue: #2980b9;
+
+  /* Typography */
+  --font-head: var(--font-poppins);
+  --font-body: var(--font-montserrat);
+  --font-elegant: var(--font-raleway);
+
+  /* Dimensions */
+  --sidebar-width: 260px;
+  --header-height: 70px;
+  --bottom-nav-height: 70px;
+}
+
+body {
+  background-color: var(--mnc-bg);
+  color: var(--mnc-charcoal);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- LAYOUT ARCHITECTURE --- */
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* --- SIDEBAR (Desktop Default) --- */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--mnc-navy);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.sidebar-brand {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  font-family: var(--font-elegant);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-brand span {
+  color: var(--mnc-gold);
+}
+
+.nav-menu {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-btn {
+  padding: 16px 25px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding-left: 30px;
+}
+
+.nav-btn.active {
+  color: var(--mnc-gold);
+  background: linear-gradient(90deg, rgba(197, 164, 126, 0.15) 0%, transparent 100%);
+  border-left-color: var(--mnc-gold);
+}
+
+/* --- MAIN WRAPPER --- */
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* --- HEADER --- */
+.top-header {
+  height: var(--header-height);
+  background-color: var(--mnc-surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+  z-index: 40;
+  flex-shrink: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.gym-logo {
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
+
+.gym-title {
+  font-family: var(--font-elegant);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--mnc-navy);
+  letter-spacing: 0.5px;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-header {
+  padding: 8px 16px;
+  border: 1px solid var(--mnc-gold);
+  background: transparent;
+  color: var(--mnc-gold);
+  border-radius: 4px;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-header:hover {
+  background: var(--mnc-gold);
+  color: white;
+}
+
+.btn-logout {
+  border-color: var(--status-red);
+  color: var(--status-red);
+}
+
+.btn-logout:hover {
+  background: var(--status-red);
+  color: white;
+}
+
+/* --- CONTENT AREA --- */
+.content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px 40px;
+  padding-bottom: 20px;
+}
+
+.page-title {
+  font-family: var(--font-elegant);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--mnc-navy);
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--mnc-border);
+  padding-bottom: 10px;
+}
+
+/* --- RESPONSIVE TABLES --- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  background: var(--mnc-surface);
+}
+
+.data-table {
+  width: 100%;
+  min-width: 600px; /* Forces scroll on small screens */
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--mnc-surface);
+}
+
+.data-table th {
+  background-color: #f9fafb;
+  color: #718096;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 2px solid var(--mnc-border);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--mnc-border);
+  color: var(--mnc-charcoal);
+  vertical-align: middle;
+}
+
+/* --- MOBILE & TABLET RESPONSIVENESS (Max Width 768px) --- */
+@media screen and (max-width: 768px) {
+  
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  /* 1. Sidebar becomes Bottom Nav */
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--bottom-nav-height);
+    flex-direction: row;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .sidebar-brand {
+    display: none; /* Hide brand in bottom nav */
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  .nav-btn {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+    flex: 1;
+    font-size: 0.7rem; /* Smaller font for mobile labels */
+    border-left: none;
+    border-top: 3px solid transparent;
+    text-align: center;
+  }
+
+  .nav-btn:hover {
+    padding-left: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-btn.active {
+    background: transparent;
+    border-left-color: transparent;
+    border-top-color: var(--mnc-gold);
+    color: var(--mnc-gold);
+  }
+
+  /* 2. Main Wrapper Adjustments */
+  .main-wrapper {
+    width: 100%;
+    height: calc(100vh - var(--bottom-nav-height));
+  }
+
+  /* 3. Header Adjustments */
+  .top-header {
+    padding: 0 15px;
+    height: 60px;
+  }
+  
+  .gym-title {
+    font-size: 0.9rem;
+    display: none; /* Hide full text on very small screens if needed, or keep */
+  }
+  
+  /* Show minimal title on mobile */
+  @media (min-width: 360px) {
+    .gym-title { display: block; font-size: 0.85rem; }
+  }
+
+  .btn-header {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  /* 4. Content Area */
+  .content-area {
+    padding: 20px 15px;
+    padding-bottom: 90px; /* Extra space for bottom nav scroll */
+  }
+
+  .page-title {
+    font-size: 1.4rem;
+  }
+  
+  /* 5. Stat Cards */
+  .stat-card {
+    width: 100%;
+  }
+  
+  .stat-big {
+    font-size: 2.5rem;
+  }
+}
+
+/* --- COMPONENTS --- */
+.btn-action {
+  background-color: var(--mnc-navy);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-back {
+  background: white;
+  color: var(--mnc-charcoal);
+  border: 1px solid var(--mnc-border);
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge-red { background: #fff5f5; color: var(--status-red); border: 1px solid rgba(192,57,43,0.1); }
+.badge-yellow { background: #fffcf2; color: #d35400; border: 1px solid rgba(211,84,0,0.1); }
+.badge-green { background: #f0fff4; color: var(--status-green); border: 1px solid rgba(39,174,96,0.1); }
+
+.stat-card {
+  background: var(--mnc-surface);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--mnc-gold);
+  margin-bottom: 25px;
+  max-width: 500px;
+}
